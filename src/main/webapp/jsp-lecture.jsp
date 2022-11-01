@@ -16,15 +16,16 @@
 
 <%--IF / ELSE EQUIVALENT--%>
 <c:choose>
+<%--IF--%>
     <c:when test = "${param.choice.equals('rock')}">
         <h1>Rock beats Scissors!</h1>
     </c:when>
+<%--ELSE--%>
     <c:otherwise>
         <h1>You Lose!</h1>
     </c:otherwise>
 </c:choose>
 
-<%----%>
 <%
     String[] nationalParks = {"Rocky Mountain National Park", "Yellowstone National Park", "Big Bend National Park"};
     request.setAttribute("nationalParksArray", nationalParks);
