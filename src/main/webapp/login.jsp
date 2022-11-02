@@ -6,16 +6,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+<%--Bootstrap Form--%>
+<%@ include file="partials/form.html" %>
 
-<form method="POST" action="/login.jsp">
-    <label for="username">Username:</label>
-    <input id="username" name="username" placeholder="Enter your Username"/>
-    <label for="password">Password:</label>
-    <input id="password" name="password" placeholder="Enter your Password"/>
-    <button type="submit">submit</button>
-</form>
-
-<c:if test="${param.username.equalsIgnoreCase('admin') && param.password.equalsIgnoreCase('password')}">
+<%--Check for admin and password--%>
+<c:if test="${param.floatingInput.equalsIgnoreCase('admin') && param.floatingPassword.equalsIgnoreCase('password')}">
     <%response.sendRedirect("/profile.jsp");%>
 </c:if>
 
