@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -6,7 +7,7 @@
 </head>
 <body>
 
-<form method="POST" action="/pizza-order.jsp">
+<form method="POST" action="/pizza-order">
 
   <div id="deliveryAddress">
     <label for="street">Street: </label>
@@ -49,18 +50,32 @@
   
   <div id="pizzaToppings">
     <label for="pepperoni">Pepperoni: </label>
-    <input type="checkbox" name="pepperoni" id="pepperoni" value="pepperoni">
+    <input type="checkbox" name="toppings" id="pepperoni" value="pepperoni">
     <label for="bacon">Bacon: </label>
-    <input type="checkbox" name="bacon" id="bacon" value="bacon">
+    <input type="checkbox" name="toppings" id="bacon" value="bacon">
     <label for="tomatoes">Tomatoes: </label>
-    <input type="checkbox" name="tomatoes" id="tomatoes" value="tomatoes">
+    <input type="checkbox" name="toppings" id="tomatoes" value="tomatoes">
     <label for="onion">Onion: </label>
-    <input type="checkbox" name="onion" id="onion" value="onion">
+    <input type="checkbox" name="toppings" id="onion" value="onion">
+  </div>
+
+  <div id="pizzaButton">
+    <button type="submit">Place Order!</button>
   </div>
 
 </form>
 
-
+<div>
+  <p>Address: ${param.street} ${param.city} ${param.state} ${param.zip}</p>
+  <p>Size: ${param.size}</p>
+  <p>Crust: ${param.crust}</p>
+  <p>Sauce: ${param.sauce}</p>
+  <p>Toppings:
+    <c:forEach var="value" items="${paramValues.toppings}">
+      <c:out value="${value}"/>
+    </c:forEach>
+  </p>
+</div>
 
 </body>
 </html>
