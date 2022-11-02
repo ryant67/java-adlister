@@ -6,5 +6,19 @@
 </head>
 <body>
 
+<form method="POST" action="/login.jsp">
+    <label for="username">Username:</label>
+    <input id="username" name="username" placeholder="Enter your Username"/>
+    <label for="password">Password:</label>
+    <input id="password" name="password" placeholder="Enter your Password"/>
+</form>
+
+<c:choose>
+    <c:when test="">
+        
+    </c:when>
+</c:choose>
+
+
 </body>
 </html>
