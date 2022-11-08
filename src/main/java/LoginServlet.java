@@ -12,8 +12,10 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
-    protected void goPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
+    protected void goPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        boolean validAttempt =
     }
 
 }
