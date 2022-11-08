@@ -9,10 +9,11 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-
-
         request.getRequestDispatcher("/login.jsp").forward(request, response);
+    }
+
+    protected void goPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
     }
 
 }
