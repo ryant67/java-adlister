@@ -15,7 +15,9 @@ public class LoginServlet extends HttpServlet {
     protected void goPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        boolean validAttempt =
+        boolean validAttempt = username.equals("admin") && password.equals("password");
+
+        if(validAttempt)
     }
 
 }
