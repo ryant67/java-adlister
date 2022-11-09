@@ -15,12 +15,12 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        boolean validAttempt = username.equals("admin") && password.equals("password");
+        boolean validAttempt = username.equals("admin") && password.equals("go");
 
         if(validAttempt) {
-            response.sendRedirect("/profile.jsp");
+            response.sendRedirect("/profile");
         } else {
-            response.sendRedirect("/login.jsp");
+            response.sendRedirect("/login");
         }
     }
 }
