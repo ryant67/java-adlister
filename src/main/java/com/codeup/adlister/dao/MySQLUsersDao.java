@@ -5,7 +5,7 @@ import java.sql.*;
 
 
 public class MySQLUsersDao implements Users {
-    private Connection connection = null;
+    private Connection connection;
 
     public MySQLUsersDao(Config config) {
         try {
@@ -20,11 +20,20 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User findByUsername(String username) {
-        User user = new User();
-        if(username.equals(user.getUsername())) {
+        String userSQL = "SELECT * FROM users WHERE username = ?";
 
+        try {
+            PreparedStatement stmt = connection.prepareStatement(userSQL);
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            rs.next();
+
+            return new User(rs.getLong("id"), rs.getString("username"), rs.getString("email"), rs.getString("password"));
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Sorry");
         }
-        return user;
     }
 
     @Override
