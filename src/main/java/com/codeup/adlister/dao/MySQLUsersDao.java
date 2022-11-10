@@ -10,11 +10,13 @@ public class MySQLUsersDao implements Users {
     public MySQLUsersDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
-            Connection connection = DriverManager.getConnection(
-                    config.getUrl(), config.getUser(), config.getPassword()
+            connection = DriverManager.getConnection(
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Sorry, error connecting to database...", e);
+            throw new RuntimeException("Error connecting to the database!", e);
         }
     }
 
